@@ -1,4 +1,7 @@
 spring:
+  rabbitmq:
+    host: localhost
+    port: 5672
   datasource:
     url: jdbc:postgresql://localhost:5432/workshop
     username: workshop
@@ -8,16 +11,22 @@ spring:
     stream:
       bindings:
         input:
+          consumer:
+            max-attempts: 1
           destination: workshop.input
-          binder: local_rabbit
+          group: group
         output:
           destination: workshop.output
-          binder: local_rabbit
-      binders:
-        local_rabbit:
-          type: rabbit
-          environment:
-            spring:
-              rabbitmq:
-                host: localhost
-                port: 5672
+      rabbit:
+        bindings:
+          input:
+            consumer:
+              declareExchange: true
+              missing-queues-fatal: true
+              autoBindDlq: true
+              declareDlx: true
+              dlqDeadLetterExchange:
+              dlqTtl: 10000
+          output:
+            producer:
+              declareExchange: true

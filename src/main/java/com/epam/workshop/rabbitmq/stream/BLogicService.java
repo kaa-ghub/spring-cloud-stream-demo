@@ -10,6 +10,7 @@ public class BLogicService {
 
     public void event(String message) {
         streamProducer.produce("Message " + message, null);
+        throw new RuntimeException("Some exception");
     }
 
 }
