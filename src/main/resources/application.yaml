@@ -1,8 +1,6 @@
 spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/workshop
-    username: workshop
-    password: workshop
     driver-class-name: org.postgresql.Driver
   cloud:
     stream:
