@@ -1,0 +1,23 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/workshop
+    username: workshop
+    password: workshop
+    driver-class-name: org.postgresql.Driver
+  cloud:
+    stream:
+      bindings:
+        input:
+          destination: workshop.input
+          binder: local_rabbit
+        output:
+          destination: workshop.output
+          binder: local_rabbit
+      binders:
+        local_rabbit:
+          type: rabbit
+          environment:
+            spring:
+              rabbitmq:
+                host: localhost
+                port: 5672
