@@ -7,8 +7,8 @@ import org.springframework.stereotype.Service;
 @Service
 @RequiredArgsConstructor
 public class ConsumerService {
-    private final StreamProducer streamProducer;
     private final Properties properties;
+    private final MessageRepository messageRepository;
 
     public void event(String message) {
         if ("exception".equals(message)) {
@@ -17,7 +17,8 @@ public class ConsumerService {
             throw new ImmediateAcknowledgeAmqpException("UnmarshallingError with message:" + message);
         }
 
-        streamProducer.produce("Message " + message, null);
+        System.out.println(
+                messageRepository.save(new MessageEntity(null, message)));
     }
 
 }

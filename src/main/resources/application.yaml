@@ -30,7 +30,9 @@ spring:
           output:
             producer:
               declareExchange: true
-
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
 application:
   exceptions:
     UnmarshallingFailureException
