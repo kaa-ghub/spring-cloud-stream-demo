@@ -30,3 +30,7 @@ spring:
           output:
             producer:
               declareExchange: true
+
+application:
+  exceptions:
+    UnmarshallingFailureException
