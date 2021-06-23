@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 @RequiredArgsConstructor
 public class StreamConsumer {
 
-    private final BLogicService bLogicService;
+    private final ConsumerService bLogicService;
 
     @StreamListener(Processor.INPUT)
     public void message(String message) {
