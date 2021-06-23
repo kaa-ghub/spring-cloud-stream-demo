@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public class BLogicService {
+public class ConsumerService {
     private final StreamProducer streamProducer;
 
     public void event(String message) {
