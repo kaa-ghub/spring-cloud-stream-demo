@@ -3,6 +3,6 @@ spring:
     stream:
       bindings:
         input:
-          destination: workshop.input
+          destination: workshop.first.input
         output:
-          destination: workshop.output
+          destination: workshop.first.output
