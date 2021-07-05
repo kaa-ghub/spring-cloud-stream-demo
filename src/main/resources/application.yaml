@@ -13,7 +13,6 @@ spring:
         bindings:
           input:
             consumer:
-              declareExchange: true
               missing-queues-fatal: true
               autoBindDlq: true
               declareDlx: true
