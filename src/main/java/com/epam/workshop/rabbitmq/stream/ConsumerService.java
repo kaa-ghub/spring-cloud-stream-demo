@@ -14,7 +14,7 @@ public class ConsumerService {
         if ("exception".equals(message)) {
             throw new RuntimeException("Exception with message :" + message);
         } else if (properties.getExceptions().contains(message)) {
-            throw new ImmediateAcknowledgeAmqpException("UnmarshallingError with message:" + message);
+            throw new ImmediateAcknowledgeAmqpException("Error with message:" + message);
         }
 
         System.out.println(

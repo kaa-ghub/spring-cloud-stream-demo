@@ -7,8 +7,6 @@ spring:
             max-attempts: 1
           destination: workshop.input
           group: group
-        output:
-          destination: workshop.output
       rabbit:
         bindings:
           input:
@@ -18,9 +16,6 @@ spring:
               declareDlx: true
               dlqDeadLetterExchange:
               dlqTtl: 10000
-          output:
-            producer:
-              declareExchange: true
   jpa:
     hibernate:
       ddl-auto: create-drop
